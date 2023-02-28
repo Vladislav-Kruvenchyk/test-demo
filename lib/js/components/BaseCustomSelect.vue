@@ -90,7 +90,7 @@
                         :value="option.value"
                         class="options-item"
                         :style="optionItemStyle"
-                        @click="updateValue(option.value)"
+                        @click="updateValue(option)"
                     >
                         <span>{{ option.title }}</span>
                     </div>
@@ -231,22 +231,23 @@ export default {
       get() {
         return this.value;
       },
-      set(value) {
-        this.$emit('input', value);
+      set(option) {
+        console.log(option)
+        this.$emit('input',option);
       },
     },
     selected() {
-      const selectedOption = this.options.find(option => option.value?.toString() === this.model?.toString());
+      const selectedOption = this.options.find(option => option.title?.toString() === this.model?.toString());
 
       return selectedOption?.title;
     },
     getPlaceholder() {
-      return this.placeholder || this.$t('Виберіть значення зі списку');
+      return this.placeholder || ('Виберіть значення зі списку');
     },
   },
   methods: {
-    updateValue(value) {
-      this.model = value;
+    updateValue(option) {
+      this.model = option;
       this.open = false;
     },
   },
@@ -295,7 +296,7 @@ export default {
     outline: none
 
 .select-wrapper
-  width: 100%
+  //width: 100%
   outline: none
 
   &:focus

@@ -32,7 +32,7 @@ export default {
               'lightgrey',
               'delete',
               'white',
-              'show-details',
+              'componentTv-details',
               'yellow',
               'red',
               'orange',
@@ -41,32 +41,62 @@ export default {
             },
         },
         buttonStyle: {
-            type: [String, Object]
+            type: [String, Object],
+            default: () => null
         },
         isLoading: {
             type: Boolean,
             default: false,
         }
     },
-    computed: {
+  computed: {
         computedType() {
             if (this.isLoading) {
                 return 'agri-button-loading';
             }
             return 'agri-button-' + this.buttonType.trim();
         }
+    },
+  mounted() {
+    function createRipple(event) {
+      const button = event.currentTarget;
+
+      const circle = document.createElement("span");
+      const diameter = Math.max(button.clientWidth, button.clientHeight);
+      const radius = diameter / 2;
+
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+      circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+      circle.classList.add("ripple");
+
+      const ripple = button.getElementsByClassName("ripple")[0];
+
+      if (ripple) {
+        ripple.remove();
+      }
+
+      button.appendChild(circle);
     }
+
+    const buttons = document.getElementsByTagName("button");
+    for (const button of buttons) {
+      button.addEventListener("click", createRipple);
+    }
+
+  }
 }
 </script>
-
-<style lang="sass" scoped>
+<style lang="sass">
     @import 'lib/css/src/partials/_geometrics'
     @import 'lib/css/src/partials/_colors'
     @import 'lib/css/src/partials/_typography.sass'
     @import 'lib/css/src/mixins/setTypography.mixin.sass'
     @import 'lib/css/src/mixins/breakpoints.mixin.sass'
 
+
     .agri-button
+        position: relative
         width: 228px
         height: 48px
         background: none
@@ -78,8 +108,10 @@ export default {
         column-gap: 7px
         color: #fff
         font-size: 12px
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3)
         line-height: $default-line-height
         text-transform: uppercase
+        transition: background 400ms
         @include respond-to('small')
             width: unset
             min-width: 97px
@@ -89,6 +121,21 @@ export default {
             color: $grey-3
             pointer-events: none
             box-shadow: none
+
+        span.ripple
+          position: absolute
+          border-radius: 50%
+          transform: scale(0)
+          animation: ripple 600ms linear
+          background-color: rgba(255, 255, 255, 0.7)
+
+
+          @keyframes ripple
+            to
+              transform: scale(4)
+              opacity: 0
+
+
 
     .agri-button-loading
         opacity: .5
@@ -102,7 +149,7 @@ export default {
         & *
             @include set-button-text
         &:hover
-            box-shadow: 0 21px 20px -15px rgba($red-3, 0.35)
+            box-shadow: 0 21px 20px -15px rgba($grey-1, 0.35)
             background: $green-2
     .agri-button-blue
         background: #2280D3

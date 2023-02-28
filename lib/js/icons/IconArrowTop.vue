@@ -2,6 +2,7 @@
     <svg
         :width="width"
         :height="height"
+        :style="styleArrow"
         viewBox="0 0 12 8"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  name: "ArrowTop",
+  name: "IconArrowTop",
   props: {
     width: {
       type: Number,
@@ -25,8 +26,11 @@ export default {
     height: {
       type: Number,
       default: 12
+    },
+    styleArrow: {
+      type: String,
+      default: ''
     }
-
   }
 }
 </script>

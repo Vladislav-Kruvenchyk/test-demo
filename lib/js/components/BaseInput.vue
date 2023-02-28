@@ -139,9 +139,9 @@ export default {
         align-items: center
         height: $height
         border-radius: 8px
-        border: 2px solid $grey-3
+        border: 2px solid $grey-1
         background: #fff
-        transition: 0.1s all
+        transition: 0.1s alls
         padding-left: 16px
         padding-right: 16px
         font-size: 14px !important
@@ -151,7 +151,7 @@ export default {
         &:focus
             outline: none
     .error-text-label
-        color: $red-1
+        color: $grey-1
     .icon-error
         position: absolute
         right: calc(#{$heading-margin} - 12px)
@@ -166,11 +166,11 @@ export default {
         border: 1px solid $grey-4 !important
         pointer-events: none !important
 
-    .no-hover-styles
-        &:hover
-            border: 2px solid $red-3
-        &:focus
-            border: 2px solid $red-3
+    //.no-hover-styles
+    //    &:hover
+    //        border: 2px solid $grey-1
+    //    &:focus
+    //        border: 2px solid $grey-1
 
     .label-absolute
         position: absolute
