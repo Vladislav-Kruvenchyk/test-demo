@@ -1,0 +1,37 @@
+@import 'lib/css/src/mixins/positions.mixin'
+@import 'lib/css/src/partials/geometrics'
+@import "lib/css/src/partials/colors.sass"
+
+.slider-icon-wrapper
+  @include flex-center
+  width: 24px
+  height: 24px
+  border-radius: $small-border-radius
+  background: #fff
+  cursor: pointer
+  transition: .2s all
+
+  &--disabled
+    background: $green-3
+
+.cards
+  &__title
+    display: flex
+    gap: 16px
+    margin-top: 16px
+    align-items: center
+
+    p
+      font-weight: 500
+      font-size: 24px
+      line-height: 32px
+      color: #212121
+      white-space: nowrap
+
+  @media (max-width: 1600px)
+    &__title
+      gap: 4px
+      margin: 16px 0 8px 0
+
+      p
+        font-size: 22px

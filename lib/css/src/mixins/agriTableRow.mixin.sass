@@ -1,0 +1,70 @@
+@import 'lib/css/src/partials/_geometrics'
+@import 'lib/css/src/partials/_colors'
+@import "lib/css/src/mixins/visuals.mixin.sass"
+@mixin agri-table-row
+
+.table-row
+    display: grid
+    width: 100%
+    border-collapse: collapse
+    margin-top: 20px
+    background: #fff
+    border-radius: $default-border-radius
+    padding: 21px 19px
+    position: relative
+    font-size: 14px
+    transition: 0.2s all
+    @include set-effect
+    &:hover > .table-row-menu > div
+        background-color: $green-1
+
+    div
+        display: flex
+        justify-content: space-between
+
+    div:first-child
+        display: flex
+
+        .table-cell-text
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
+
+.table-row-menu
+    height: 21px
+    padding: 0 5px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    position: relative
+
+    &:hover, &:hover *
+        cursor: pointer
+
+    div
+        width: 5px
+        height: 5px
+        border-radius: 5px
+        background-color: $grey-2
+
+.table-icon-wrapper
+    width: 24px
+    height: 24px 
+
+.table-row-popup
+    width: 10px
+    justify-self: end
+    flex: none
+
+.table-cell-controls
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+@media (min-width: 1131px) and (max-width: 1280px)
+    .table-row
+        gap: 20px !important
+
+@media (max-width: 1130px) 
+    .table-row
+        gap: 15px !important

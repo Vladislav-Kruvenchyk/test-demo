@@ -1,0 +1,30 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  /*--card-height: 65vh;*/
+  /*--card-width: calc(var(--card-height) / 1.5);*/
+}
+
+.card {
+  display: grid;
+  /*grid-auto-columns: 80%;*/
+  /*height: 410px;*/
+  border-radius: 8px;
+  background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+  animation: spin 2.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
