@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import CardItem from "@/newComponents/card-item.vue";
+import CardItem from "@/components/card-item.vue";
 
 export default {
   name: "ContentWrapper",

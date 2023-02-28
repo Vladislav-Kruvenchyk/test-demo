@@ -6,7 +6,7 @@
 <script>
 
 
-import ContentWrapper from "@/newComponents/contentWrapper.vue";
+import ContentWrapper from "@/components/contentWrapper.vue";
 
 export  default  {
   name: 'App',
