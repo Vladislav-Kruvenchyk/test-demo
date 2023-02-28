@@ -15,7 +15,7 @@
             </div>
             <div
                 v-if="isActive"
-                class="card__item text header"
+                class="card__item text active-animation"
             >
                 <div class="card__item text-title">
                     <h1
@@ -131,10 +131,10 @@ export default {
 .active-arrow
   margin-bottom: 26px
 
-.header
+.active-animation
   overflow: hidden
   top: 15px
-  height: 320px
+  height: 250px
   animation: ani 1s linear forwards
   @media (max-width: 390px)
       height: 390px

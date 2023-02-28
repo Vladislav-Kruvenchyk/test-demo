@@ -76,7 +76,7 @@ export default {
   height: 100vh
 
   &__menu
-    width: 30%
+    width: 31%
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.02), 0px 4px 17px rgba(0, 0, 0, 0.14), 0px 4px 22px rgba(0, 0, 0, 0.12)
     border-radius: 8px
     @media (max-width: 320px)
